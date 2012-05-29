@@ -1,4 +1,4 @@
-package com.davidykay.mix;
+package com.davidykay.mix.model;
 
 import com.davidykay.mix.exception.ByteSizeException;
 

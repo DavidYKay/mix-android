@@ -1,16 +1,20 @@
 package com.davidykay.mix;
 
+import com.davidykay.mix.exception.ByteSizeException;
+import com.davidykay.mix.model.Command;
+import com.davidykay.mix.model.BinaryMIXMachine;
+
 public class Interpreter {
 
-  private MIXMachine mMachine;
+  private BinaryMIXMachine mMachine;
   private Tokenizer mTokenizer;
 
-  public Interpreter(MIXMachine machine, Tokenizer tokenizer) {
+  public Interpreter(BinaryMIXMachine machine, Tokenizer tokenizer) {
     mMachine = machine;
     mTokenizer = tokenizer;
   }
 
-  public void eval(String code) {
+  public void eval(String code) throws ByteSizeException {
     // break code into lines
     String[] lines = code.split("\n");
 

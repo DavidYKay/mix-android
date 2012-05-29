@@ -1,4 +1,4 @@
-package com.davidykay.mix;
+package com.davidykay.mix.model;
 
 import com.davidykay.mix.exception.ByteSizeException;
 
@@ -19,6 +19,24 @@ public class BinaryByte implements Byte {
                                                 MAX_SIZE));
     }
     mValue = value;
+  }
+  
+  public boolean equals(Object o) {
+    if (o == this) {
+      return true;
+    }
+    if (!(o instanceof Byte)) {
+      return false;
+    }
+    Byte other = (Byte) o;
+    if (other.get() != this.get()) {
+      return false;
+    }
+    return true;
+  }
+  
+  public String toString() {
+    return String.format("%d", mValue);
   }
 
 }
