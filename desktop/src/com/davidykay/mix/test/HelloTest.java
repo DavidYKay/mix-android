@@ -32,7 +32,18 @@ public class HelloTest {
     
     Command observed = tokenizer.parse("LDA 0000");
 
-    assertEquals(observed, expected);
+    assertEquals(expected, observed);
+    
+    expected = new Command(
+     new Opcode(Opcode.Type.LDA),
+     new Address(2000),
+     byteFactory.create(1),
+     new Field(5, 5)
+   );
+    
+    observed = tokenizer.parse("LDA 2000, 1(5:5)");
+
+    assertEquals(expected, observed);
   }
 
 }

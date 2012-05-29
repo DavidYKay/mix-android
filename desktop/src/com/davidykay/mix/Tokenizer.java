@@ -18,6 +18,7 @@ public class Tokenizer {
   }
 
   public Command parse(String line) throws ByteSizeException {
+
     
     Command command = new Command(
         new Opcode(Opcode.Type.LDA),
@@ -25,6 +26,7 @@ public class Tokenizer {
         mByteFactory.create(0),
         new Field()
         );
+
     return command;
   }
 
