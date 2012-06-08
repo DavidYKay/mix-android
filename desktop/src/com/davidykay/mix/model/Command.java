@@ -8,18 +8,27 @@ public class Command {
   public Field field;
   public Byte index;
   public Opcode opcode;
-  
+
   @Inject
   public Command (
       Opcode opcode,
       Address address,
       Byte index,
       Field field
-                  ) {
+      ) {
+    if (
+        opcode != null &&
+        address != null &&
+        index != null &&
+        field != null)
+    {
       this.opcode  = opcode ;
       this.address = address;
       this.index   = index  ;
       this.field   = field  ;
+    } else {
+      throw new IllegalArgumentException("Arguments must not be null!");
+    }
   }
 
   public boolean equals(Object o) {
@@ -44,14 +53,14 @@ public class Command {
     }
     return true;
   }
-  
+
   public String toString() {
     return String.format("%s %s,%s(%s)",
-                  opcode.toString(),
-                  address.toString(),
-                  index.toString(),
-                  field.toString()
-                  );
+                         opcode.toString(),
+                         address.toString(),
+                         index.toString(),
+                         field.toString()
+                        );
   }
 
 }

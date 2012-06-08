@@ -3,6 +3,13 @@ package com.davidykay.mix.model;
 import com.davidykay.mix.model.Opcode.Type;
 
 public class Opcode {
+
+  public static class OpcodeFactory {
+    public static Opcode opcodeFromString(String opcodeName) {
+      Opcode.Type type = Enum.valueOf(Opcode.Type.class, opcodeName);
+      return new Opcode(type);
+    }
+  }
   
   public Type type;
 
@@ -14,7 +21,6 @@ public class Opcode {
     LDA,
     ADD
   }
-
 
   public boolean equals(Object o) {
     if (o == this) {
