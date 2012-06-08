@@ -19,7 +19,8 @@ public class Opcode {
 
   public enum Type {
     LDA,
-    ADD
+    ADD,
+    SUB,
   }
 
   public boolean equals(Object o) {

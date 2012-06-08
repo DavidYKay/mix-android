@@ -28,6 +28,7 @@ public class OpcodeFactoryTest {
     HashMap<String, Opcode> values = new HashMap<String, Opcode>();
     values.put("LDA", new Opcode(Opcode.Type.LDA));
     values.put("ADD", new Opcode(Opcode.Type.ADD));
+    values.put("SUB", new Opcode(Opcode.Type.SUB));
 
 
     for (Map.Entry<String, Opcode> entry : values.entrySet()) {

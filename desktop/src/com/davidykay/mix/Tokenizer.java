@@ -34,11 +34,12 @@ public class Tokenizer {
     System.out.println("OPCODE found: "  + opcodeString);
     System.out.println("ADDRESS found: " + addressString);
 
-    Opcode opcode = OpcodeFactory.opcodeFromString(opcodeString);
+    Opcode opcode   = OpcodeFactory.opcodeFromString(opcodeString);
+    Address address = new Address(Integer.parseInt(addressString));
     
     Command command = new Command(
         opcode,
-        new Address(0000),
+        address,
         mByteFactory.create(0),
         new Field()
         );
