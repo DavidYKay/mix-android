@@ -62,5 +62,9 @@ public class Command {
                          field.toString()
                         );
   }
+  
+  public Word toWord() {
+    return null;    
+  }
 
 }

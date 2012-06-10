@@ -2,13 +2,13 @@ package com.davidykay.mix.model;
 
 import com.davidykay.mix.exception.ByteSizeException;
 
-public class BinaryByte implements Byte {
-  
+public class BinaryByte extends Byte {
+
   public static final int MAX_SIZE = 63;
 
   private int mValue;
 
-  public int get() {
+  public int value() {
     return mValue;
   }
 
@@ -20,7 +20,7 @@ public class BinaryByte implements Byte {
     }
     mValue = value;
   }
-  
+
   public boolean equals(Object o) {
     if (o == this) {
       return true;
@@ -29,14 +29,19 @@ public class BinaryByte implements Byte {
       return false;
     }
     Byte other = (Byte) o;
-    if (other.get() != this.get()) {
+    if (other.value() != this.value()) {
       return false;
     }
     return true;
   }
-  
+
   public String toString() {
     return String.format("%d", mValue);
+  }
+
+  @Override
+  int getValueCount() {
+    return MAX_SIZE + 1;
   }
 
 }

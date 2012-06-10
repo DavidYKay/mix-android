@@ -12,9 +12,29 @@ import com.davidykay.mix.model.ByteFactory;
 import com.davidykay.mix.model.Command;
 import com.davidykay.mix.model.Field;
 import com.davidykay.mix.model.Opcode;
-import com.google.inject.Inject;
 
 public class SystemTest {
+  
+  @Test
+  public void testAddition() throws ByteSizeException {
+    // Load instructions into RAM
+    
+
+    // Execute
+    
+    // End state should look like this:
+    // A: 0
+    // X: 0
+    // I1: 0
+    // I2: 0
+    // I3: 0
+    // I4: 0
+    // I5: 0
+    // I6: 0
+    // Overflow: Off
+    // CMP: Off
+
+  }
 
   @Test
   public void testTokenize() throws ByteSizeException {

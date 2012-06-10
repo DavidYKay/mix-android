@@ -1,6 +1,5 @@
 package com.davidykay.mix.model;
 
-import com.davidykay.mix.model.Opcode.Type;
 
 public class Opcode {
 

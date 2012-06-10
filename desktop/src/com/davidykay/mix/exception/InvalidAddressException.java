@@ -1,4 +1,4 @@
-package com.davidykay.mix.model;
+package com.davidykay.mix.exception;
 
 public class InvalidAddressException extends IllegalArgumentException {
 

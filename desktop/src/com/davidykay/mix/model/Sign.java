@@ -1,6 +1,9 @@
 package com.davidykay.mix.model;
 
-public class Sign {
+public enum Sign {
+
+  POSITIVE,
+  NEGATIVE,
 
   
 }

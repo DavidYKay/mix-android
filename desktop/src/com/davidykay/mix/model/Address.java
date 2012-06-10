@@ -1,5 +1,7 @@
 package com.davidykay.mix.model;
 
+import com.davidykay.mix.exception.InvalidAddressException;
+
 public class Address {
 
   public static final int MIN_ADDRESS = 0;
@@ -7,6 +9,15 @@ public class Address {
 
   public int address;
 
+  public static class AddressFactory {
+    public Address makeFromBytes(Byte[] bytes) {
+      if (bytes.length != 2) {
+        throw new IllegalArgumentException("Address must be two bytes long.");
+      }
+      return new Address(Byte.getValueOfArray(bytes));
+    }
+  }
+  
   public Address(int i) {
     if (i < MIN_ADDRESS) {
       throw new InvalidAddressException("Address cannot be less than " + MIN_ADDRESS);
@@ -33,6 +44,11 @@ public class Address {
       return false;
     }
     return true;
+  }
+
+  public Byte[] toBytes() {
+    
+    return null;
   }
 
 }
