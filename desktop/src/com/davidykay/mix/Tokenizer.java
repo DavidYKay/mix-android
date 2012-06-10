@@ -22,7 +22,6 @@ public class Tokenizer {
   }
 
   public Command parse(String line) throws ByteSizeException {
-
     // Direct use of Pattern:
     Pattern p = Pattern.compile(
         //"(\\w+) (\\d+),? (\\S+)");

@@ -30,7 +30,6 @@ public class OpcodeFactoryTest {
     values.put("ADD", new Opcode(Opcode.Type.ADD));
     values.put("SUB", new Opcode(Opcode.Type.SUB));
 
-
     for (Map.Entry<String, Opcode> entry : values.entrySet()) {
       assertEquals(
           OpcodeFactory.opcodeFromString(entry.getKey()),

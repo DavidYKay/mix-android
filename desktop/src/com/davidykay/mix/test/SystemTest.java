@@ -14,7 +14,7 @@ import com.davidykay.mix.model.Field;
 import com.davidykay.mix.model.Opcode;
 import com.google.inject.Inject;
 
-public class HelloTest {
+public class SystemTest {
 
   @Test
   public void testTokenize() throws ByteSizeException {
