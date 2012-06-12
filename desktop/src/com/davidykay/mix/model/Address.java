@@ -14,7 +14,7 @@ public class Address {
       if (bytes.length != 2) {
         throw new IllegalArgumentException("Address must be two bytes long.");
       }
-      return new Address(Byte.getValueOfArray(bytes));
+      return new Address(Byte.valueOfArray(bytes));
     }
   }
   
