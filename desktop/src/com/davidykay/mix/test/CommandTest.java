@@ -14,6 +14,7 @@ import com.davidykay.mix.model.Byte;
 import com.davidykay.mix.model.ByteFactory;
 import com.davidykay.mix.model.Command;
 import com.davidykay.mix.model.Field;
+import com.davidykay.mix.model.Index;
 import com.davidykay.mix.model.Opcode;
 import com.davidykay.mix.model.Sign;
 import com.davidykay.mix.model.Word;
@@ -35,7 +36,7 @@ public class CommandTest {
     Command nop = new Command(
      new Opcode(Opcode.Type.ADD),
      new Address(0000),
-     byteFactory.create(0),
+     new Index(0),
      new Field(0, 5)
    );
 
@@ -57,7 +58,7 @@ public class CommandTest {
     Command add = new Command(
      new Opcode(Opcode.Type.ADD),
      new Address(0000),
-     byteFactory.create(0),
+     new Index(0),
      new Field(0, 5)
    );
 

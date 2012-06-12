@@ -1,7 +1,7 @@
 package com.davidykay.mix.model;
 
 
-public class Opcode {
+public class Opcode implements Byteable {
 
   public static class OpcodeFactory {
     public static Opcode opcodeFromString(String opcodeName) {
@@ -38,6 +38,11 @@ public class Opcode {
   
   public String toString() {
     return type.name();
+  }
+
+  public Byte toByte() {
+    // TODO Auto-generated method stub
+    return null;
   }
 
 }

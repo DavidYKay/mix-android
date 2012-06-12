@@ -8,6 +8,7 @@ import com.davidykay.mix.model.Address;
 import com.davidykay.mix.model.ByteFactory;
 import com.davidykay.mix.model.Command;
 import com.davidykay.mix.model.Field;
+import com.davidykay.mix.model.Index;
 import com.davidykay.mix.model.Opcode;
 import com.davidykay.mix.model.Opcode.OpcodeFactory;
 import com.google.inject.Inject;
@@ -39,7 +40,7 @@ public class Tokenizer {
     Command command = new Command(
         opcode,
         address,
-        mByteFactory.create(0),
+        new Index(0),
         new Field()
         );
 

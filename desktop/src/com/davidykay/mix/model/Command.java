@@ -1,19 +1,20 @@
 package com.davidykay.mix.model;
 
+import com.davidykay.mix.exception.InvalidWordSizeException;
 import com.google.inject.Inject;
 
 public class Command {
 
   public Address address;
   public Field field;
-  public Byte index;
+  public Index index;
   public Opcode opcode;
 
   @Inject
   public Command (
       Opcode opcode,
       Address address,
-      Byte index,
+      Index index,
       Field field
       ) {
     if (
@@ -63,8 +64,22 @@ public class Command {
                         );
   }
   
-  public Word toWord() {
-    return null;    
+  public Word toWord() throws InvalidWordSizeException {
+    Byte[] addressBytes = this.address.toBytes();
+
+    //Byte[] bytes = null;
+    Byte[] bytes = new Byte[] {
+      addressBytes[0],
+      addressBytes[1],
+      this.index.toByte(),
+      this.field.toByte(),
+      this.opcode.toByte()
+    };
+
+    return new Word(
+        Sign.POSITIVE,
+        bytes
+    );
   }
 
 }

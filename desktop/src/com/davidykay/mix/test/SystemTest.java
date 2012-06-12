@@ -11,6 +11,7 @@ import com.davidykay.mix.model.BinaryByteFactory;
 import com.davidykay.mix.model.ByteFactory;
 import com.davidykay.mix.model.Command;
 import com.davidykay.mix.model.Field;
+import com.davidykay.mix.model.Index;
 import com.davidykay.mix.model.Opcode;
 
 public class SystemTest {
@@ -46,7 +47,7 @@ public class SystemTest {
     Command expected = new Command(
      new Opcode(Opcode.Type.LDA),
      new Address(0000),
-     byteFactory.create(0),
+     new Index(0),
      new Field(0, 5)
    );
     
@@ -57,7 +58,7 @@ public class SystemTest {
     expected = new Command(
      new Opcode(Opcode.Type.LDA),
      new Address(2000),
-     byteFactory.create(1),
+     new Index(1),
      new Field(5, 5)
    );
     

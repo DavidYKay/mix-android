@@ -2,7 +2,7 @@ package com.davidykay.mix.model;
 
 import com.google.inject.Inject;
 
-public class BinaryMIXMachine implements MIXMachine {
+public class DecimalMIXMachine implements MIXMachine {
   
   @Inject protected Memory mMemory;
   
@@ -22,18 +22,13 @@ public class BinaryMIXMachine implements MIXMachine {
   protected Context mContext;
   
   @Inject
-  public BinaryMIXMachine(Context context) {
-    if (context.numberSystem != NumberSystem.BINARY) {
-      throw new IllegalArgumentException("BinaryMIXMachine must be invoked with binary number system!");
+  public DecimalMIXMachine(Context context) {
+    if (context.numberSystem != NumberSystem.DECIMAL) {
+      throw new IllegalArgumentException("DecimalMIXMachine must be invoked with binary number system!");
     }
     mContext = context;
   }
-
-  public void execute(Command command) {
-    // TODO Auto-generated method stub
-    
-  }
-
+  
   @Override
   public Context getContext() {
     return mContext;
