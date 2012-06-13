@@ -9,6 +9,7 @@ import org.junit.Test;
 import com.davidykay.mix.exception.ByteSizeException;
 import com.davidykay.mix.exception.InvalidWordSizeException;
 import com.davidykay.mix.model.Address;
+import com.davidykay.mix.model.AddressFactory;
 import com.davidykay.mix.model.ByteFactory;
 import com.davidykay.mix.model.Command;
 import com.davidykay.mix.model.Context;
@@ -35,20 +36,21 @@ public class CommandTest {
 
     Context context = new Context(NumberSystem.BINARY);
     ByteFactory byteFactory = context.getByteFactory();
+    AddressFactory addressFactory = context.getAddressFactory();
     OpcodeFactory opcodeFactory = context.getOpcodeFactory();
     
     Command nop = new Command(
-     opcodeFactory.opcodeFromString("ADD"),
-     new Address(0000),
+     opcodeFactory.opcodeFromString("NOP"),
+     addressFactory.make(0000),
      new Index(byteFactory.make(0)),
-     new Field(0, 5)
+     new Field(0, 5, context)
    );
 
     MIXByte [] bytes = new MIXByte[] { 
       byteFactory.make(0),
       byteFactory.make(0),
       byteFactory.make(0),
-      byteFactory.make(0),
+      byteFactory.make(5),
       byteFactory.make(0),
     };
     Word expected = new Word(
@@ -61,9 +63,9 @@ public class CommandTest {
     
     Command add = new Command(
      opcodeFactory.opcodeFromString("ADD"),
-     new Address(0000),
+     addressFactory.make(0000),
      new Index(byteFactory.make(0)),
-     new Field(0, 5)
+     new Field(0, 5, context)
    );
 
   }

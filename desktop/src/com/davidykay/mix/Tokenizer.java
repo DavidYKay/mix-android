@@ -36,13 +36,13 @@ public class Tokenizer {
     System.out.println("ADDRESS found: " + addressString);
 
     Opcode opcode   = mContext.getOpcodeFactory().opcodeFromString(opcodeString);
-    Address address = new Address(Integer.parseInt(addressString));
+    Address address = mContext.getAddressFactory().make(Integer.parseInt(addressString));
     
     Command command = new Command(
         opcode,
         address,
         mContext.getIndexFactory().make(0),
-        new Field()
+        new Field(mContext)
         );
 
     return command;

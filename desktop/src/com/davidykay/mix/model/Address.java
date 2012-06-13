@@ -7,29 +7,29 @@ public class Address {
   public static final int MIN_ADDRESS = 0;
   public static final int MAX_ADDRESS = 3999;
 
-  public int address;
+  private int mAddress;
+  private MIXByte[] mBytes;
 
-  public static class AddressFactory {
-    public Address makeFromBytes(MIXByte[] bytes) {
-      if (bytes.length != 2) {
-        throw new IllegalArgumentException("Address must be two bytes long.");
-      }
-      return new Address(MIXByte.valueOfArray(bytes));
+  public Address(MIXByte[] bytes) {
+    if (bytes.length != 2) {
+      throw new IllegalArgumentException("Address must be two bytes long.");
     }
-  }
-  
-  public Address(int i) {
+
+    int i = MIXByte.valueOfArray(bytes);
+
     if (i < MIN_ADDRESS) {
       throw new InvalidAddressException("Address cannot be less than " + MIN_ADDRESS);
     }
     if (i > MAX_ADDRESS) {
       throw new InvalidAddressException("Address cannot be more than " + MAX_ADDRESS);
     }
-    address = i;
+
+    mAddress = i;
+    mBytes = bytes;
   }
 
   public String toString() {
-    return String.format("%d", address);
+    return String.format("%d", mAddress);
   }
 
   public boolean equals(Object o) {
@@ -40,15 +40,18 @@ public class Address {
       return false;
     }
     Address other = (Address) o;
-    if (other.address != this.address) {
+    if (other.value() != this.value()) {
       return false;
     }
     return true;
   }
+  
+  public int value() {
+    return mAddress;
+  }
 
   public MIXByte[] toBytes() {
-    
-    return null;
+    return mBytes;
   }
 
 }

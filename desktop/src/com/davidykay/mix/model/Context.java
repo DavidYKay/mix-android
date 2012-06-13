@@ -31,4 +31,8 @@ public class Context {
     return new IndexFactory(mByteFactory);
   }
 
+  public AddressFactory getAddressFactory() {
+    return new AddressFactory(this);
+  }
+
 }

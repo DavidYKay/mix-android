@@ -6,6 +6,7 @@ import com.davidykay.mix.exception.MixedByteException;
 public abstract class MIXByte {
   public abstract int value();
   public abstract void set(int value) throws ByteSizeException;  
+
   abstract int getValueCount();
 
   public static int valueOfArray(MIXByte[] bytes) throws MixedByteException {

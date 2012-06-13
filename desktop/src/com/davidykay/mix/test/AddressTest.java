@@ -7,11 +7,19 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.davidykay.mix.model.Address;
+import com.davidykay.mix.model.AddressFactory;
+import com.davidykay.mix.model.Context;
+import com.davidykay.mix.model.NumberSystem;
 
 public class AddressTest {
 
+  private Context mContext;
+  private AddressFactory mAddressFactory;
+
   @Before
   public void setUp() throws Exception {
+    mContext = new Context(NumberSystem.BINARY);
+    mAddressFactory = new AddressFactory(mContext);
   }
 
   @After
@@ -20,8 +28,9 @@ public class AddressTest {
 
   private void createAddressWithNumber(int number, boolean shouldFail) {
     boolean threwException = false;
+    
     try {
-      Address address = new Address(number);
+      Address address = mAddressFactory.make(number);
     } catch (IllegalArgumentException ex) {
       threwException = true;
     } finally {

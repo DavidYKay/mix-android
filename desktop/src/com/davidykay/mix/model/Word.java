@@ -34,4 +34,22 @@ public class Word {
                          sb.toString());
   }
 
+  public boolean equals(Object o) {
+    if (o == this) {
+      return true;
+    }
+    if (!(o instanceof Word)) {
+      return false;
+    }
+    Word other = (Word) o;
+    if (!other.sign.equals(this.sign)) {
+      return false;
+    }
+    if (!other.bytes.equals(this.bytes)) {
+      return false;
+    }
+
+    return true;
+  }
+
 }

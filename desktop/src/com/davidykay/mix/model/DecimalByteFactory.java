@@ -11,4 +11,10 @@ public class DecimalByteFactory implements ByteFactory {
     return bite;
   }
 
+  @Override
+  public MIXByte[] makeArrayWithValue(int value) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
 }
