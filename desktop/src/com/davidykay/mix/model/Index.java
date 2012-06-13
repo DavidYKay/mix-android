@@ -20,7 +20,7 @@ public class Index implements Byteable {
 
     mByte = mixByte;
   }
-  
+
   public int value() {
     return mByte.value();
   }
@@ -31,6 +31,20 @@ public class Index implements Byteable {
 
   public String toString() {
     return String.valueOf(mByte.value());
+  }
+
+  public boolean equals(Object o) {
+    if (o == this) {
+      return true;
+    }
+    if (!(o instanceof Index)) {
+      return false;
+    }
+    Index other = (Index) o;
+    if (other.value() != this.value()) {
+      return false;
+    }
+    return true;
   }
 
 }

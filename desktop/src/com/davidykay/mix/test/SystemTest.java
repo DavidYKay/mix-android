@@ -57,7 +57,6 @@ public class SystemTest {
     );
     
     Command observed = tokenizer.parse("LDA 0000");
-
     assertEquals(expected, observed);
     
     expected = new Command(
