@@ -12,6 +12,10 @@ public class IndexFactory {
     mByteFactory = byteFactory;
   }
 
+  public Index make() throws ByteSizeException {
+    return make(0);
+  }
+
   public Index make(int value) throws ByteSizeException {
     return new Index(
         mByteFactory.make(value)

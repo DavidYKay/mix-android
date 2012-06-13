@@ -36,20 +36,19 @@ public class IndexTest {
 
   @Test
   public void testBounds() throws ByteSizeException {
-    boolean threwException = false;
     
     try {
       Index index = mIndexFactory.make(-1);
       fail("Index -1 should be illegal");
     } catch (InvalidIndexException ex) {
-      threwException = true;
+      // NOP
     }
 
     try {
       Index index = mIndexFactory.make(7);
       fail("Index 7 should be illegal");
     } catch (InvalidIndexException ex) {
-      threwException = true;
+      // NOP
     }
 
     try {

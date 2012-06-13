@@ -81,7 +81,6 @@ public class CommandTest {
         );
     assertEquals(expected, add.toWord());
 
-
   }
 
 }
