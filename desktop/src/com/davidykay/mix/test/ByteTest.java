@@ -26,15 +26,15 @@ public class ByteTest {
   public void testSum() throws ByteSizeException {
     ByteFactory binaryFactory = new BinaryByteFactory();
     MIXByte[] sixtyFive  = new MIXByte[] {
-      binaryFactory.create(1),
-      binaryFactory.create(1),
+      binaryFactory.make(1),
+      binaryFactory.make(1),
     };
     assertEquals(65, MIXByte.valueOfArray(sixtyFive));
     
     ByteFactory decimalFactory = new DecimalByteFactory();
     MIXByte[] oneOhOne  = new MIXByte[] {
-      decimalFactory.create(1),
-      decimalFactory.create(1),
+      decimalFactory.make(1),
+      decimalFactory.make(1),
     };
     assertEquals(101, MIXByte.valueOfArray(oneOhOne));
   }

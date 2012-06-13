@@ -11,10 +11,18 @@ import com.davidykay.mix.model.BinaryByteFactory;
 import com.davidykay.mix.model.ByteFactory;
 import com.davidykay.mix.model.Command;
 import com.davidykay.mix.model.Field;
-import com.davidykay.mix.model.Index;
+import com.davidykay.mix.model.Index.IndexFactory;
 import com.davidykay.mix.model.Opcode;
+import com.google.inject.Inject;
 
 public class SystemTest {
+  
+  private IndexFactory mIndexFactory;
+
+  @Inject
+  public SystemTest(IndexFactory indexFactory) {
+    mIndexFactory = indexFactory;
+  }
   
   @Test
   public void testAddition() throws ByteSizeException {
@@ -42,12 +50,12 @@ public class SystemTest {
     
     ByteFactory byteFactory = new BinaryByteFactory();
 
-    Tokenizer tokenizer = new Tokenizer(byteFactory);
+    Tokenizer tokenizer = new Tokenizer(byteFactory, mIndexFactory);
 
     Command expected = new Command(
      new Opcode(Opcode.Type.LDA),
      new Address(0000),
-     new Index(0),
+     mIndexFactory.make(0),
      new Field(0, 5)
    );
     
@@ -58,7 +66,7 @@ public class SystemTest {
     expected = new Command(
      new Opcode(Opcode.Type.LDA),
      new Address(2000),
-     new Index(1),
+     mIndexFactory.make(1),
      new Field(5, 5)
    );
     

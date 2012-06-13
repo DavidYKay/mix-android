@@ -36,16 +36,16 @@ public class CommandTest {
     Command nop = new Command(
      new Opcode(Opcode.Type.ADD),
      new Address(0000),
-     new Index(0),
+     new Index(byteFactory.make(0)),
      new Field(0, 5)
    );
 
     MIXByte [] bytes = new MIXByte[] { 
-      byteFactory.create(0),
-      byteFactory.create(0),
-      byteFactory.create(0),
-      byteFactory.create(0),
-      byteFactory.create(0),
+      byteFactory.make(0),
+      byteFactory.make(0),
+      byteFactory.make(0),
+      byteFactory.make(0),
+      byteFactory.make(0),
     };
     Word expected = new Word(
       Sign.POSITIVE,
@@ -58,7 +58,7 @@ public class CommandTest {
     Command add = new Command(
      new Opcode(Opcode.Type.ADD),
      new Address(0000),
-     new Index(0),
+     new Index(byteFactory.make(0)),
      new Field(0, 5)
    );
 

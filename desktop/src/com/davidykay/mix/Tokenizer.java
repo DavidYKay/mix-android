@@ -8,7 +8,7 @@ import com.davidykay.mix.model.Address;
 import com.davidykay.mix.model.ByteFactory;
 import com.davidykay.mix.model.Command;
 import com.davidykay.mix.model.Field;
-import com.davidykay.mix.model.Index;
+import com.davidykay.mix.model.Index.IndexFactory;
 import com.davidykay.mix.model.Opcode;
 import com.davidykay.mix.model.Opcode.OpcodeFactory;
 import com.google.inject.Inject;
@@ -16,10 +16,12 @@ import com.google.inject.Inject;
 public class Tokenizer {
   
   private ByteFactory mByteFactory;
+  private IndexFactory mIndexFactory;
 
   @Inject
-  public Tokenizer(ByteFactory byteFactory) {
+  public Tokenizer(ByteFactory byteFactory, IndexFactory indexFactory) {
     mByteFactory = byteFactory;
+    mIndexFactory = indexFactory;
   }
 
   public Command parse(String line) throws ByteSizeException {
@@ -40,7 +42,7 @@ public class Tokenizer {
     Command command = new Command(
         opcode,
         address,
-        new Index(0),
+        mIndexFactory.make(0),
         new Field()
         );
 
