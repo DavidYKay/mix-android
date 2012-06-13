@@ -1,5 +1,6 @@
 package com.davidykay.mix.test;
 
+import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 
 import java.util.HashMap;
@@ -10,7 +11,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.davidykay.mix.model.Opcode;
-import com.davidykay.mix.model.Opcode.OpcodeFactory;
 
 public class OpcodeFactoryTest {
 
@@ -25,17 +25,19 @@ public class OpcodeFactoryTest {
   @Test
   public void test() {
 
-    HashMap<String, Opcode> values = new HashMap<String, Opcode>();
-    values.put("LDA", new Opcode(Opcode.Type.LDA));
-    values.put("ADD", new Opcode(Opcode.Type.ADD));
-    values.put("SUB", new Opcode(Opcode.Type.SUB));
-
-    for (Map.Entry<String, Opcode> entry : values.entrySet()) {
-      assertEquals(
-          OpcodeFactory.opcodeFromString(entry.getKey()),
-          entry.getValue()
-          );
-    }
+//    HashMap<String, Opcode> values = new HashMap<String, Opcode>();
+//    
+//    values.put("LDA", new Opcode(Opcode.Type.LDA));
+//    values.put("ADD", new Opcode(Opcode.Type.ADD));
+//    values.put("SUB", new Opcode(Opcode.Type.SUB));
+//
+//    for (Map.Entry<String, Opcode> entry : values.entrySet()) {
+//      assertEquals(
+//          OpcodeFactory.opcodeFromString(entry.getKey()),
+//          entry.getValue()
+//          );
+//    }
+    fail("not implemented yet");
   }
 
 }

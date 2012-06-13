@@ -1,5 +1,6 @@
 package com.davidykay.mix.test;
 
+import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
@@ -7,28 +8,21 @@ import org.junit.Test;
 import com.davidykay.mix.Tokenizer;
 import com.davidykay.mix.exception.ByteSizeException;
 import com.davidykay.mix.model.Address;
-import com.davidykay.mix.model.BinaryByteFactory;
 import com.davidykay.mix.model.ByteFactory;
 import com.davidykay.mix.model.Command;
+import com.davidykay.mix.model.Context;
 import com.davidykay.mix.model.Field;
-import com.davidykay.mix.model.Index.IndexFactory;
-import com.davidykay.mix.model.Opcode;
+import com.davidykay.mix.model.IndexFactory;
+import com.davidykay.mix.model.NumberSystem;
+import com.davidykay.mix.model.OpcodeFactory;
 import com.google.inject.Inject;
 
 public class SystemTest {
-  
-  private IndexFactory mIndexFactory;
-
-  @Inject
-  public SystemTest(IndexFactory indexFactory) {
-    mIndexFactory = indexFactory;
-  }
   
   @Test
   public void testAddition() throws ByteSizeException {
     // Load instructions into RAM
     
-
     // Execute
     
     // End state should look like this:
@@ -43,32 +37,35 @@ public class SystemTest {
     // Overflow: Off
     // CMP: Off
 
+    fail("not yet implemented!");
   }
 
   @Test
   public void testTokenize() throws ByteSizeException {
-    
-    ByteFactory byteFactory = new BinaryByteFactory();
+    Context context = new Context(NumberSystem.BINARY);
+    ByteFactory byteFactory = context.getByteFactory();
+    IndexFactory indexFactory = context.getIndexFactory();
+    OpcodeFactory opcodeFactory = context.getOpcodeFactory();
 
-    Tokenizer tokenizer = new Tokenizer(byteFactory, mIndexFactory);
+    Tokenizer tokenizer = new Tokenizer(context);
 
     Command expected = new Command(
-     new Opcode(Opcode.Type.LDA),
-     new Address(0000),
-     mIndexFactory.make(0),
-     new Field(0, 5)
-   );
+      opcodeFactory.opcodeFromString("LDA"),
+      new Address(0000),
+      indexFactory.make(0),
+      new Field(0, 5)
+    );
     
     Command observed = tokenizer.parse("LDA 0000");
 
     assertEquals(expected, observed);
     
     expected = new Command(
-     new Opcode(Opcode.Type.LDA),
-     new Address(2000),
-     mIndexFactory.make(1),
-     new Field(5, 5)
-   );
+      opcodeFactory.opcodeFromString("LDA"),
+      new Address(2000),
+      indexFactory.make(1),
+      new Field(5, 5)
+    );
     
     observed = tokenizer.parse("LDA 2000, 1(5:5)");
 

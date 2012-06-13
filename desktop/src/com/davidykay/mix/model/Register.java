@@ -7,7 +7,7 @@ public abstract class Register {
 //  public abstract MIXByte[] getBytes();
 //  public abstract Sign getSign();
 //  
-//  public abstract void setBytes(MIXByte[] mIXBytes);
+//  public abstract void setBytes(MIXByte[] bytes);
 //  public abstract void setSign(Sign sign);
   
   protected static final int NUM_BYTES = 0;

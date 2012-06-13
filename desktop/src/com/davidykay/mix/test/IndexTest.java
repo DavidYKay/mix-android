@@ -9,22 +9,25 @@ import org.junit.Test;
 
 import com.davidykay.mix.exception.ByteSizeException;
 import com.davidykay.mix.exception.InvalidIndexException;
+import com.davidykay.mix.model.Context;
 import com.davidykay.mix.model.Index;
-import com.davidykay.mix.model.Index.IndexFactory;
+import com.davidykay.mix.model.IndexFactory;
 import com.davidykay.mix.model.MIXByte;
-import com.google.inject.Inject;
+import com.davidykay.mix.model.NumberSystem;
 
 public class IndexTest {
   
   private IndexFactory mIndexFactory;
 
-  @Inject
-  public IndexTest(IndexFactory indexFactory) {
-    mIndexFactory = indexFactory;
-  }
+//  @Inject
+//  public IndexTest(IndexFactory indexFactory) {
+//    mIndexFactory = indexFactory;
+//  }
 
   @Before
   public void setUp() throws Exception {
+    Context context = new Context(NumberSystem.BINARY);
+    mIndexFactory = context.getIndexFactory();
   }
 
   @After

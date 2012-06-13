@@ -9,13 +9,14 @@ import org.junit.Test;
 import com.davidykay.mix.exception.ByteSizeException;
 import com.davidykay.mix.exception.InvalidWordSizeException;
 import com.davidykay.mix.model.Address;
-import com.davidykay.mix.model.BinaryByteFactory;
-import com.davidykay.mix.model.MIXByte;
 import com.davidykay.mix.model.ByteFactory;
 import com.davidykay.mix.model.Command;
+import com.davidykay.mix.model.Context;
 import com.davidykay.mix.model.Field;
 import com.davidykay.mix.model.Index;
-import com.davidykay.mix.model.Opcode;
+import com.davidykay.mix.model.MIXByte;
+import com.davidykay.mix.model.NumberSystem;
+import com.davidykay.mix.model.OpcodeFactory;
 import com.davidykay.mix.model.Sign;
 import com.davidykay.mix.model.Word;
 
@@ -31,10 +32,13 @@ public class CommandTest {
 
   @Test
   public void testToWord() throws ByteSizeException, InvalidWordSizeException {
-    ByteFactory byteFactory = new BinaryByteFactory();    
+
+    Context context = new Context(NumberSystem.BINARY);
+    ByteFactory byteFactory = context.getByteFactory();
+    OpcodeFactory opcodeFactory = context.getOpcodeFactory();
     
     Command nop = new Command(
-     new Opcode(Opcode.Type.ADD),
+     opcodeFactory.opcodeFromString("ADD"),
      new Address(0000),
      new Index(byteFactory.make(0)),
      new Field(0, 5)
@@ -56,7 +60,7 @@ public class CommandTest {
     assertEquals(expected, observed);
     
     Command add = new Command(
-     new Opcode(Opcode.Type.ADD),
+     opcodeFactory.opcodeFromString("ADD"),
      new Address(0000),
      new Index(byteFactory.make(0)),
      new Field(0, 5)

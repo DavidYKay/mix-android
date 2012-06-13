@@ -12,7 +12,7 @@ public class Address {
   public static class AddressFactory {
     public Address makeFromBytes(MIXByte[] bytes) {
       if (bytes.length != 2) {
-        throw new IllegalArgumentException("Address must be two mIXBytes long.");
+        throw new IllegalArgumentException("Address must be two bytes long.");
       }
       return new Address(MIXByte.valueOfArray(bytes));
     }

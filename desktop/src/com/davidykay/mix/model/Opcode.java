@@ -1,19 +1,15 @@
 package com.davidykay.mix.model;
 
+import com.davidykay.mix.exception.ByteSizeException;
 
 public class Opcode implements Byteable {
 
-  public static class OpcodeFactory {
-    public static Opcode opcodeFromString(String opcodeName) {
-      Opcode.Type type = Enum.valueOf(Opcode.Type.class, opcodeName);
-      return new Opcode(type);
-    }
-  }
-
   public Type type;
+  private ByteFactory mByteFactory;
 
-  public Opcode(Type type) {
+  public Opcode(Type type, ByteFactory byteFactory) {
     this.type = type;
+    mByteFactory = byteFactory;
   }
 
   public enum Type {
@@ -69,6 +65,10 @@ public class Opcode implements Byteable {
     Type(int value) {
       mValue = value;
     }
+
+    public int getValue() {
+      return mValue;
+    }
   }
 
   public boolean equals(Object o) {
@@ -90,8 +90,11 @@ public class Opcode implements Byteable {
   }
 
   public MIXByte toByte() {
-    // TODO Auto-generated method stub
-    return null;
+    try {
+      return mByteFactory.make(this.type.getValue());
+    } catch (ByteSizeException e) {
+      throw new RuntimeException("Programmer is an idiot. This Opcode has not been implemented correctly: " + this);     
+    }
   }
 
 }

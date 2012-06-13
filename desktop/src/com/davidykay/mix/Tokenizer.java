@@ -5,23 +5,22 @@ import java.util.regex.Pattern;
 
 import com.davidykay.mix.exception.ByteSizeException;
 import com.davidykay.mix.model.Address;
-import com.davidykay.mix.model.ByteFactory;
 import com.davidykay.mix.model.Command;
+import com.davidykay.mix.model.Context;
 import com.davidykay.mix.model.Field;
-import com.davidykay.mix.model.Index.IndexFactory;
 import com.davidykay.mix.model.Opcode;
-import com.davidykay.mix.model.Opcode.OpcodeFactory;
 import com.google.inject.Inject;
 
 public class Tokenizer {
   
-  private ByteFactory mByteFactory;
-  private IndexFactory mIndexFactory;
+  private Context mContext;
+//  private ByteFactory mByteFactory;
+//  private IndexFactory mIndexFactory;
 
   @Inject
-  public Tokenizer(ByteFactory byteFactory, IndexFactory indexFactory) {
-    mByteFactory = byteFactory;
-    mIndexFactory = indexFactory;
+  public Tokenizer(Context context) {
+    mContext = context;
+    //mIndexFactory = indexFactory;
   }
 
   public Command parse(String line) throws ByteSizeException {
@@ -36,13 +35,13 @@ public class Tokenizer {
     System.out.println("OPCODE found: "  + opcodeString);
     System.out.println("ADDRESS found: " + addressString);
 
-    Opcode opcode   = OpcodeFactory.opcodeFromString(opcodeString);
+    Opcode opcode   = mContext.getOpcodeFactory().opcodeFromString(opcodeString);
     Address address = new Address(Integer.parseInt(addressString));
     
     Command command = new Command(
         opcode,
         address,
-        mIndexFactory.make(0),
+        mContext.getIndexFactory().make(0),
         new Field()
         );
 

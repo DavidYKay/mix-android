@@ -23,7 +23,7 @@ public class BinaryMIXMachine implements MIXMachine {
   
   @Inject
   public BinaryMIXMachine(Context context) {
-    if (context.numberSystem != NumberSystem.BINARY) {
+    if (context.getNumberSystem() != NumberSystem.BINARY) {
       throw new IllegalArgumentException("BinaryMIXMachine must be invoked with binary number system!");
     }
     mContext = context;

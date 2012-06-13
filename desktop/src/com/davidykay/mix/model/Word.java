@@ -8,9 +8,9 @@ public class Word {
   public static final int WORD_SIZE = 5;
 
   //public Sign sign    = new Sign();
-  //public MIXByte[] mIXBytes = new MIXByte[5];
+  //public MIXByte[] bytes = new MIXByte[5];
   public Sign sign    ;
-  public MIXByte[] mIXBytes ;
+  public MIXByte[] bytes ;
 
   @Inject
   public Word(Sign sign, MIXByte[] bytes) throws InvalidWordSizeException {
@@ -20,12 +20,12 @@ public class Word {
                                                 bytes.length,
                                                 WORD_SIZE));
     }
-    this.mIXBytes = bytes;
+    this.bytes = bytes;
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    for (MIXByte bite : mIXBytes) {
+    for (MIXByte bite : bytes) {
       sb.append(bite.toString());
     }
 

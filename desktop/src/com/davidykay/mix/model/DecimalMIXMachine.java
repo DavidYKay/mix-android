@@ -23,7 +23,7 @@ public class DecimalMIXMachine implements MIXMachine {
   
   @Inject
   public DecimalMIXMachine(Context context) {
-    if (context.numberSystem != NumberSystem.DECIMAL) {
+    if (context.getNumberSystem() != NumberSystem.DECIMAL) {
       throw new IllegalArgumentException("DecimalMIXMachine must be invoked with binary number system!");
     }
     mContext = context;

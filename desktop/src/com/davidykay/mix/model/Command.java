@@ -67,7 +67,7 @@ public class Command {
   public Word toWord() throws InvalidWordSizeException {
     MIXByte[] addressBytes = this.address.toBytes();
 
-    //MIXByte[] mIXBytes = null;
+    //MIXByte[] bytes = null;
     MIXByte[] bytes = new MIXByte[] {
       addressBytes[0],
       addressBytes[1],
