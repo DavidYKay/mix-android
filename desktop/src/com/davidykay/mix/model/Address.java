@@ -10,11 +10,11 @@ public class Address {
   public int address;
 
   public static class AddressFactory {
-    public Address makeFromBytes(Byte[] bytes) {
+    public Address makeFromBytes(MIXByte[] bytes) {
       if (bytes.length != 2) {
-        throw new IllegalArgumentException("Address must be two bytes long.");
+        throw new IllegalArgumentException("Address must be two mIXBytes long.");
       }
-      return new Address(Byte.valueOfArray(bytes));
+      return new Address(MIXByte.valueOfArray(bytes));
     }
   }
   
@@ -46,7 +46,7 @@ public class Address {
     return true;
   }
 
-  public Byte[] toBytes() {
+  public MIXByte[] toBytes() {
     
     return null;
   }

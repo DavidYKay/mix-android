@@ -8,7 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.davidykay.mix.exception.InvalidIndexException;
-import com.davidykay.mix.model.Byte;
+import com.davidykay.mix.model.MIXByte;
 import com.davidykay.mix.model.Index;
 
 public class IndexTest {
@@ -55,7 +55,7 @@ public class IndexTest {
   @Test
   public void test() {
     Index index = new Index(0);
-    Byte bite = index.toByte();
+    MIXByte bite = index.toByte();
     assertEquals(0, bite.value());
 
   }

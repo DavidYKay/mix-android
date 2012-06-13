@@ -9,7 +9,7 @@ import org.junit.Test;
 import com.davidykay.mix.exception.ByteSizeException;
 import com.davidykay.mix.model.BinaryByteFactory;
 import com.davidykay.mix.model.ByteFactory;
-import com.davidykay.mix.model.Byte;
+import com.davidykay.mix.model.MIXByte;
 import com.davidykay.mix.model.DecimalByteFactory;
 
 public class ByteTest {
@@ -25,17 +25,17 @@ public class ByteTest {
   @Test
   public void testSum() throws ByteSizeException {
     ByteFactory binaryFactory = new BinaryByteFactory();
-    Byte[] sixtyFive  = new Byte[] {
+    MIXByte[] sixtyFive  = new MIXByte[] {
       binaryFactory.create(1),
       binaryFactory.create(1),
     };
-    assertEquals(65, Byte.valueOfArray(sixtyFive));
+    assertEquals(65, MIXByte.valueOfArray(sixtyFive));
     
     ByteFactory decimalFactory = new DecimalByteFactory();
-    Byte[] oneOhOne  = new Byte[] {
+    MIXByte[] oneOhOne  = new MIXByte[] {
       decimalFactory.create(1),
       decimalFactory.create(1),
     };
-    assertEquals(101, Byte.valueOfArray(oneOhOne));
+    assertEquals(101, MIXByte.valueOfArray(oneOhOne));
   }
 }

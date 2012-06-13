@@ -2,7 +2,7 @@ package com.davidykay.mix.model;
 
 import com.davidykay.mix.exception.ByteSizeException;
 
-public class DecimalByte extends Byte {
+public class DecimalByte extends MIXByte {
 
   public static final int MAX_SIZE = 99;
 
@@ -25,10 +25,10 @@ public class DecimalByte extends Byte {
     if (o == this) {
       return true;
     }
-    if (!(o instanceof Byte)) {
+    if (!(o instanceof MIXByte)) {
       return false;
     }
-    Byte other = (Byte) o;
+    MIXByte other = (MIXByte) o;
     if (other.value() != this.value()) {
       return false;
     }

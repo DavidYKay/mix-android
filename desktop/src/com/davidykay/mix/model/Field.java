@@ -39,7 +39,7 @@ public class Field implements Byteable {
     return true;
   }
 
-  public Byte toByte() {
+  public MIXByte toByte() {
     // TODO Auto-generated method stub
     return null;
   }

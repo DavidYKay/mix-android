@@ -19,7 +19,7 @@ public class Index implements Byteable {
     mValue = i;
   }
 
-  public Byte toByte() {
+  public MIXByte toByte() {
     return null;
   }
 

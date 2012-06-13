@@ -6,7 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.davidykay.mix.model.Byte;
+import com.davidykay.mix.model.MIXByte;
 import com.davidykay.mix.model.Field;
 
 public class FieldTest {
@@ -22,7 +22,7 @@ public class FieldTest {
   @Test
   public void test() {
     Field field = new Field(0,5);
-    Byte bite = field.toByte();
+    MIXByte bite = field.toByte();
     fail("Not yet implemented");
   }
 

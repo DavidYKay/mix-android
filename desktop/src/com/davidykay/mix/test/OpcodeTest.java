@@ -6,7 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.davidykay.mix.model.Byte;
+import com.davidykay.mix.model.MIXByte;
 import com.davidykay.mix.model.Opcode;
 
 public class OpcodeTest {
@@ -22,7 +22,7 @@ public class OpcodeTest {
   @Test
   public void test() {
     Opcode opcode = new Opcode(Opcode.Type.LDA);
-    Byte bite = opcode.toByte();
+    MIXByte bite = opcode.toByte();
     fail("Not yet implemented");
   }
 

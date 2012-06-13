@@ -4,23 +4,23 @@ import com.davidykay.mix.exception.InvalidWordSizeException;
 
 public abstract class Register {
 
-//  public abstract Byte[] getBytes();
+//  public abstract MIXByte[] getBytes();
 //  public abstract Sign getSign();
 //  
-//  public abstract void setBytes(Byte[] bytes);
+//  public abstract void setBytes(MIXByte[] mIXBytes);
 //  public abstract void setSign(Sign sign);
   
   protected static final int NUM_BYTES = 0;
 
-  protected Byte[] mBytes;
+  protected MIXByte[] mBytes;
   protected Sign mSign;
 
   public Register() {
-    mBytes = new Byte[NUM_BYTES];
+    mBytes = new MIXByte[NUM_BYTES];
     mSign = Sign.POSITIVE;
   }
 
-  public Byte[] getBytes() {
+  public MIXByte[] getBytes() {
     return mBytes;
   }
 
@@ -28,7 +28,7 @@ public abstract class Register {
     return mSign;
   }
 
-  public void setBytes(Byte[] bytes) throws InvalidWordSizeException {
+  public void setBytes(MIXByte[] bytes) throws InvalidWordSizeException {
     if (bytes.length > NUM_BYTES) {
       throw new InvalidWordSizeException("Exceeded register size of: " + NUM_BYTES);
     } else {

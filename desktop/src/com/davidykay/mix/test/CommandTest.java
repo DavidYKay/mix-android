@@ -10,7 +10,7 @@ import com.davidykay.mix.exception.ByteSizeException;
 import com.davidykay.mix.exception.InvalidWordSizeException;
 import com.davidykay.mix.model.Address;
 import com.davidykay.mix.model.BinaryByteFactory;
-import com.davidykay.mix.model.Byte;
+import com.davidykay.mix.model.MIXByte;
 import com.davidykay.mix.model.ByteFactory;
 import com.davidykay.mix.model.Command;
 import com.davidykay.mix.model.Field;
@@ -40,7 +40,7 @@ public class CommandTest {
      new Field(0, 5)
    );
 
-    Byte [] bytes = new Byte[] { 
+    MIXByte [] bytes = new MIXByte[] { 
       byteFactory.create(0),
       byteFactory.create(0),
       byteFactory.create(0),
