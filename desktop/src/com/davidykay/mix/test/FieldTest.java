@@ -1,6 +1,6 @@
 package com.davidykay.mix.test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.After;
 import org.junit.Before;
@@ -10,7 +10,6 @@ import com.davidykay.mix.exception.ByteSizeException;
 import com.davidykay.mix.model.ByteFactory;
 import com.davidykay.mix.model.Context;
 import com.davidykay.mix.model.Field;
-import com.davidykay.mix.model.MIXByte;
 import com.davidykay.mix.model.NumberSystem;
 
 public class FieldTest {

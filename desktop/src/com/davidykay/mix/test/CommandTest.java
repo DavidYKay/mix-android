@@ -8,7 +8,6 @@ import org.junit.Test;
 
 import com.davidykay.mix.exception.ByteSizeException;
 import com.davidykay.mix.exception.InvalidWordSizeException;
-import com.davidykay.mix.model.Address;
 import com.davidykay.mix.model.AddressFactory;
 import com.davidykay.mix.model.ByteFactory;
 import com.davidykay.mix.model.Command;
@@ -38,35 +37,50 @@ public class CommandTest {
     ByteFactory byteFactory = context.getByteFactory();
     AddressFactory addressFactory = context.getAddressFactory();
     OpcodeFactory opcodeFactory = context.getOpcodeFactory();
-    
+
     Command nop = new Command(
-     opcodeFactory.opcodeFromString("NOP"),
-     addressFactory.make(0000),
-     new Index(byteFactory.make(0)),
-     new Field(0, 5, context)
-   );
+        opcodeFactory.opcodeFromString("NOP"),
+        addressFactory.make(0000),
+        new Index(byteFactory.make(0)),
+        new Field(0, 5, context)
+        );
 
-    MIXByte [] bytes = new MIXByte[] { 
-      byteFactory.make(0),
-      byteFactory.make(0),
-      byteFactory.make(0),
-      byteFactory.make(5),
-      byteFactory.make(0),
-    };
-    Word expected = new Word(
-      Sign.POSITIVE,
-      bytes
-    );
-    Word observed = nop.toWord();
-
-    assertEquals(expected, observed);
+    MIXByte [] bytes = byteFactory.makeArrayWithIntArray(new int[] {
+        0,
+        0,
+        0,
+        5,
+        0,
+    });   
     
+    Word expected = new Word(
+        Sign.POSITIVE,
+        bytes
+        );
+
+    assertEquals(expected, nop.toWord());
+
     Command add = new Command(
-     opcodeFactory.opcodeFromString("ADD"),
-     addressFactory.make(0000),
-     new Index(byteFactory.make(0)),
-     new Field(0, 5, context)
-   );
+        opcodeFactory.opcodeFromString("ADD"),
+        addressFactory.make(0000),
+        new Index(byteFactory.make(0)),
+        new Field(0, 5, context)
+        );
+
+    bytes = byteFactory.makeArrayWithIntArray(new int[] {
+        0,
+        0,
+        0,
+        5,
+        1,
+    });   
+    
+    expected = new Word(
+        Sign.POSITIVE,
+        bytes
+        );
+    assertEquals(expected, add.toWord());
+
 
   }
 

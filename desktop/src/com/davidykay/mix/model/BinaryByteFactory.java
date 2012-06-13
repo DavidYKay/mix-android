@@ -46,4 +46,13 @@ public class BinaryByteFactory implements ByteFactory {
     }
   }
 
+  @Override
+  public MIXByte[] makeArrayWithIntArray(int[] values) throws ByteSizeException {
+    MIXByte[] bytes = new MIXByte[values.length];
+    for (int i = 0; i < bytes.length; i++) {
+      bytes[i] = make(values[i]);
+    }
+    return bytes;
+  }
+
 }
