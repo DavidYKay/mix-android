@@ -21,7 +21,7 @@ public class ByteTest {
   @After
   public void tearDown() throws Exception {
   }
-  
+
   @Test
   public void testSum() throws ByteSizeException {
     ByteFactory binaryFactory = new BinaryByteFactory();
@@ -30,6 +30,13 @@ public class ByteTest {
       binaryFactory.make(1),
     };
     assertEquals(65, MIXByte.valueOfArray(sixtyFive));
+
+    MIXByte[] fourThousand  = new MIXByte[] {
+      binaryFactory.make(62),
+      binaryFactory.make(32),
+    };
+    assertEquals(4000, MIXByte.valueOfArray(fourThousand));
+
     
     ByteFactory decimalFactory = new DecimalByteFactory();
     MIXByte[] oneOhOne  = new MIXByte[] {
@@ -37,5 +44,7 @@ public class ByteTest {
       decimalFactory.make(1),
     };
     assertEquals(101, MIXByte.valueOfArray(oneOhOne));
+
+
   }
 }
